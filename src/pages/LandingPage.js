@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import TabGroup from '../components/TabGroup';
-// import { Container } from './styles'
 
 export const FourColumns = styled.div`
   display: grid;
@@ -22,6 +21,7 @@ export const FourColumns = styled.div`
   `;
 
 export const LandingPage = () => {
+
     const Container2 = styled.div`
     text-align: center;
     margin-top: 0px;
@@ -41,7 +41,7 @@ export const LandingPage = () => {
   @media (max-width: 600px) {
     padding: 12px;
     text-align: center;
-    width: 100&;
+    width: 100%;
     justify-content: center;
     align-items: center;
   }

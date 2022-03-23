@@ -1,26 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
-import { LandingPage } from './pages/LandingPage';
+import Navbar from './components/Navbar';
+import RouterMain from './pages/RouterMain';
+import styled from 'styled-components';
 
 function App() {
+  const Container = styled.div`
+  /* background: #67bc98; */
+  /* height: 100vh; */
+`;
+
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <LandingPage />
-    </div>
+<Container>
+      <Navbar />
+      <RouterMain />
+    </Container>
   );
 }
 
