@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Logo href="/">
-        Navbar<span>Demo</span>
+        Vee Gee<span></span>
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -30,12 +30,12 @@ const MenuLink = styled.a`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #67bc98;
+  color: #d9915e;
   transition: all 0.3s ease-in;
   font-size: 0.9rem;
 
   &:hover {
-    color: #7b7fda;
+    color: black;
   }
 `;
 
@@ -47,6 +47,7 @@ const Nav = styled.div`
   flex-wrap: wrap;
   background: white;
   position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -54,7 +55,7 @@ const Nav = styled.div`
 
 const Logo = styled.a`
   padding: 1rem 0;
-  color: #7b7fda;
+  color: #d9915e;
   text-decoration: none;
   font-weight: 800;
   font-size: 1.7rem;
@@ -89,7 +90,7 @@ const Hamburger = styled.div`
   span {
     height: 2px;
     width: 25px;
-    background: #7b7fda;
+    background: #d9915e;
     margin-bottom: 4px;
     border-radius: 5px;
   }

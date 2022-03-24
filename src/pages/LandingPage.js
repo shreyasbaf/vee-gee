@@ -57,6 +57,7 @@ export const LandingPage = () => {
 
   const Container5 = styled.div`
     display: flex;
+    /* flex-direction: column; */
     text-align: left;
     margin-top: 76px;
   `;
@@ -82,6 +83,7 @@ export const LandingPage = () => {
     font-weight: bold;
     font-size: 36px;
     line-height: 45px;
+    color: #d9915e;
 `;
 
  const Text7 = styled.div`
@@ -122,7 +124,7 @@ export const LandingPage = () => {
 
   const Image2 = styled.img`
     text-align: center;
-    background: #010101;
+    /* background: #010101; */
     height: 404px;
     width: 838px;
     @media (max-width: 1000px) {
@@ -160,38 +162,38 @@ const Sect2 = styled.section`
     return (
         <Sect2>
         <Container2>
-          <Text1>Marketplace introduction</Text1>
-          <Text6>Specalized in market segment</Text6>
+          <Text1>VeeGee Bakers Village</Text1>
+          <Text6>The Baking Begins From Here</Text6>
           <Text7>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Ever
             since our humble beginnings, we made sure to put our customers at the center of everything we do.
           </Text7>
-          <Image2 src='' />
+          <Image2 src='https://www.veegeebakersvillage.com/assets/images/logo/logo.PNG' />
           <FourColumns>
             <Container5>
-              <Img22 src='' />
+              <Img22 src='https://www.veegeebakersvillage.com/assets/images/logo/logo.PNG' />
               <div>
                 <Text9>Most secure way to buy</Text9>
                 <Text8>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</Text8>
               </div>
             </Container5>
             <Container5>
-              <Img22 src='' />
+              <Img22 src='https://www.veegeebakersvillage.com/assets/images/logo/logo.PNG' />
               <div>
                 <Text9>Sell your timepiece</Text9>
                 <Text8>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</Text8>
               </div>
             </Container5>
             <Container5>
-              <Img22 src='' />
+              <Img22 src='https://www.veegeebakersvillage.com/assets/images/logo/logo.PNG' />
               <div>
                 <Text9>Outline client experience</Text9>
                 <Text8>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</Text8>
               </div>
             </Container5>
             <Container5>
-              <Img22 src='' />
+              <Img22 src='https://www.veegeebakersvillage.com/assets/images/logo/logo.PNG' />
               <div>
                 <Text9>Certified watchmakers</Text9>
                 <Text8>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</Text8>
