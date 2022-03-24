@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FourColumns = styled.div`
   display: grid;
+  margin-top: 80px;
   grid-gap: 0px;
   grid-template-columns: repeat(1, 1fr);
   @media (min-width: 600px) {
