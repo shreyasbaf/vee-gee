@@ -19,12 +19,12 @@ const Home = () => {
         setLoading(true)
         const token = localStorage.getItem('token')
         const data = { token : token };
-        axios.post('https://veegee-backend-demo.herokuapp.com/getCartItems', data)
+        axios.post('http://localhost:8080/getCartItems', data)
         .then(response =>{
           console.log(response)
-            var resData = response.data.result
+            var resData = response?.data?.result
             setItems(resData)
-            setTotal(response.data.total)
+            setTotal(response?.data?.total)
             setLoading(false)
         })
         .catch(error =>{
@@ -34,7 +34,7 @@ const Home = () => {
     return (
         <>
         {
-            items.length ?
+            items && items.length ?
             <>
             <FourColumns>
             { 

@@ -16,7 +16,7 @@ const Category = () => {
     }
     React.useEffect(() => {
         setLoading(true)
-        axios.get(`https://veegee-backend-demo.herokuapp.com/getCategoryItems/`+id)
+        axios.get(`http://localhost:8080/getCategoryItems/`+id)
         .then(response =>{
             var resData = response.data
             setItems(resData)

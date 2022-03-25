@@ -13,7 +13,7 @@ export const LandingPage = () => {
         localStorage.setItem('token',token)
       }
         setLoading(true)
-        axios.get(`https://veegee-backend-demo.herokuapp.com/getCategories`)
+        axios.get(`http://localhost:8080/getCategories`)
         .then(response =>{
             var resData = response.data
             setCategory(resData)
