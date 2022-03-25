@@ -1,8 +1,20 @@
 import axios from 'axios';
 import React from 'react'
 import { Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyles';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 const Category = () => {
+    const notify = () => toast('🦄 Item Added to Cart!', {
+        position: "bottom-center",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     let location = window.location.href;
     let locationArr = location.split('/');
     console.log(locationArr[locationArr.length - 1]);
@@ -17,6 +29,7 @@ const Category = () => {
             axios.post('https://veegee-backend-demo.herokuapp.com/addItemToCart', data)
             .then(response =>{
               console.log(response)
+              notify();
             })
             .catch(error =>{
                 console.log('ERROR',error)

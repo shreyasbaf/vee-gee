@@ -6,6 +6,15 @@ const Home = () => {
     // let location = window.location.href;
     // let locationArr = location.split('/');
     // let id = locationArr[locationArr.length - 1];
+    const notify = () => toast('🦄 Item Removed to Cart!', {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
     const [loading,setLoading] = React.useState(false)
     const [items,setItems] = React.useState([])
     const [total, setTotal] = useState(0);
@@ -19,6 +28,7 @@ const Home = () => {
             .then(response =>{
               console.log(response);
               getData();
+              notify();
             })
             .catch(error =>{
                 console.log('ERROR',error)
@@ -76,6 +86,17 @@ const Home = () => {
         </>
             : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>No Data To Display</h3>
             }
+            <ToastContainer
+position="bottom-center"
+autoClose={2000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
     </>
     )
 }
