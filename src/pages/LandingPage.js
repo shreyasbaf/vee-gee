@@ -8,6 +8,10 @@ export const LandingPage = () => {
     const [loading,setLoading] = React.useState(false)
     const [category,setCategory] = React.useState([])
     React.useEffect(() => {
+      if(!localStorage.getItem('token')){
+        let token = Math.random().toString(36).substring(2,15) + Math.random().toString(36).substring(2,15) + Math.random().toString(36).substring(2,15);
+        localStorage.setItem('token',token)
+      }
         setLoading(true)
         axios.get(`https://veegee-backend-demo.herokuapp.com/getCategories`)
         .then(response =>{

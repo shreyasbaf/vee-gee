@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { Container5, FourColumns, Img22, Text9 } from './LandingPageStyles';
+import { Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyles';
 
 const Category = () => {
     let location = window.location.href;
@@ -10,6 +9,11 @@ const Category = () => {
     let id = locationArr[locationArr.length - 1];
     const [loading,setLoading] = React.useState(false)
     const [items,setItems] = React.useState([])
+    const addToCart = (PID) =>{
+        console.log(PID)
+        const token = localStorage.getItem('token')
+        //handle addToCart here
+    }
     React.useEffect(() => {
         setLoading(true)
         axios.get(`https://veegee-backend-demo.herokuapp.com/getCategoryItems/`+id)
@@ -23,22 +27,25 @@ const Category = () => {
         })
     },[])
     return (
-        <FourColumns>
+        <>
         {
             items.length ?
-            items.map((item) =>(
-                            <Container5>
-                            <Img22 src={item.image_link} />
-                            <div>
-                              <Text9 style={{textDecoration:'none', color:'black'}}>{item.name}</Text9>
-                              {/* <Text8>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut</Text8> */}
-                            </div>
-                          </Container5>
-        ))
-            : <h3 style={{textAlign:'center'}}>Loading</h3>
+            <FourColumns>
+            { items.map((item) =>(
+                    <Container5>
+                    <Img22 src={item.image_link} />
+                    <div>
+                        <Text9 style={{textDecoration:'none', color:'black'}}>{item.name}</Text9>
+                        <Text9> Rs. {item?.price}</Text9>
+                        <Text8>{item?.description}</Text8>
+                    </div>
+                    <button style={{border:'none', padding:'12px', background:'beige'}} onClick={() => {addToCart(item.id)}}>Add to cart</button>
+                    </Container5>
+        ))}
+        </FourColumns>
+            : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>Loading</h3>
             }
-    </FourColumns>
+    </>
     )
 }
-
 export default Category

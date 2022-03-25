@@ -109,7 +109,8 @@ export const FourColumns = styled.div`
     font-weight: normal;
     font-size: 14px;
     line-height: 22px;
-    margin: 10px 0;
+    text-align:center;
+    margin: 24px;
 `;
 
   export const Text9 = styled.div`
