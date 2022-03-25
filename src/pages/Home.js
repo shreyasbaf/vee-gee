@@ -15,7 +15,7 @@ const Home = () => {
         console.log(PID)
         let data = { token: token, id:PID }
         try{
-            axios.post('http://localhost:8080/removeItemFromCart', data)
+            axios.post('https://veegee-backend-demo.herokuapp.com/removeItemFromCart', data)
             .then(response =>{
               console.log(response);
               getData();

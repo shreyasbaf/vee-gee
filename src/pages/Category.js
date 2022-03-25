@@ -14,7 +14,7 @@ const Category = () => {
         const token = localStorage.getItem('token')
         let data = { token: token, id:PID }
         try{
-            axios.post('http://localhost:8080/addItemToCart', data)
+            axios.post('https://veegee-backend-demo.herokuapp.com/addItemToCart', data)
             .then(response =>{
               console.log(response)
             })
