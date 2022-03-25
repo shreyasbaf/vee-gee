@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyles';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -76,6 +76,17 @@ const Category = () => {
         </FourColumns>
             : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>No Data To Display</h3>
             }
+                        <ToastContainer
+position="bottom-center"
+autoClose={2000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
     </>
     )
 }
