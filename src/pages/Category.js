@@ -4,6 +4,7 @@ import { Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyle
 import { toast, ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import { RotatingLines } from 'react-loader-spinner';
 
 const Category = () => {
     const notify = () => toast('🦄 Item Added to Cart!', {
@@ -19,8 +20,9 @@ const Category = () => {
     let locationArr = location.split('/');
     console.log(locationArr[locationArr.length - 1]);
     let id = locationArr[locationArr.length - 1];
-    const [loading,setLoading] = React.useState(false)
+    const [loading,setLoading] = React.useState(true)
     const [items,setItems] = React.useState([])
+    const [handleAction, setHandleAction] = React.useState(false)
     const addToCart = (PID) =>{
         console.log(PID)
         const token = localStorage.getItem('token')
@@ -30,15 +32,16 @@ const Category = () => {
             .then(response =>{
               console.log(response)
               notify();
+              setHandleAction(false)
             })
             .catch(error =>{
                 console.log('ERROR',error)
             })
-          }
-          catch(err){
+            console.log(loading)
+        }
+        catch(err){
             console.log(err);
-          }
-        //handle addToCart here
+        }
     }
     React.useEffect(() => {
         try{
@@ -60,6 +63,11 @@ const Category = () => {
     return (
         <>
         {
+            loading ? 
+            <div style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>
+                <RotatingLines width="80" strokeColor="#FF5733" strokeWidth="1" />
+            </div>
+            :
             items.length ?
             <FourColumns>
             { items.map((item) =>(
@@ -70,13 +78,15 @@ const Category = () => {
                         <Text9> Rs. {item?.price}</Text9>
                         <Text8>{item?.description}</Text8>
                     </div>
-                    <button style={{border:'none', padding:'12px', background:'beige'}} onClick={() => {addToCart(item.id)}}>Add to cart</button>
+                    <button style={{border:'none', padding:'12px', background:'beige'}} onClick={() => {addToCart(item.id); setHandleAction(true);}}> {handleAction ? <RotatingLines width="20" strokeColor="#FF5733" strokeWidth="1" /> : 'Add to Cart' }</button>
                     </Container5>
         ))}
         </FourColumns>
             : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>No Data To Display</h3>
             }
-                        <ToastContainer
+            <div style={{marginBottom:'50px'}}>
+
+<ToastContainer
 position="bottom-center"
 autoClose={2000}
 hideProgressBar={false}
@@ -86,7 +96,9 @@ rtl={false}
 pauseOnFocusLoss
 draggable
 pauseOnHover
+marginBottom={150}
 />
+            </div>
     </>
     )
 }
