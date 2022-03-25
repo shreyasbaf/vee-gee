@@ -19,7 +19,7 @@ const Home = () => {
         setLoading(true)
         const token = localStorage.getItem('token')
         const data = { token : token };
-        axios.post('http://localhost:8080/getCartItems', data)
+        axios.post('https://veegee-backend-demo.herokuapp.com/getCartItems', data)
         .then(response =>{
           console.log(response)
             var resData = response?.data?.result
