@@ -1,27 +1,30 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import { Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyles';
 
 const Home = () => {
-    let location = window.location.href;
-    let locationArr = location.split('/');
-    console.log(locationArr[locationArr.length - 1]);
-    let id = locationArr[locationArr.length - 1];
+    // let location = window.location.href;
+    // let locationArr = location.split('/');
+    // let id = locationArr[locationArr.length - 1];
     const [loading,setLoading] = React.useState(false)
     const [items,setItems] = React.useState([])
+    const [total, setTotal] = useState(0);
     const addToCart = (PID) =>{
         console.log(PID)
         const token = localStorage.getItem('token')
         //handle addToCart here
     }
+    
     React.useEffect(() => {
         setLoading(true)
         const token = localStorage.getItem('token')
         const data = { token : token };
-        axios.post('http://localhost:8080/getCartItems', data)
+        axios.post('https://veegee-backend-demo.herokuapp.com/getCartItems', data)
         .then(response =>{
-            var resData = response.data
+          console.log(response)
+            var resData = response.data.result
             setItems(resData)
+            setTotal(response.data.total)
             setLoading(false)
         })
         .catch(error =>{
@@ -32,8 +35,10 @@ const Home = () => {
         <>
         {
             items.length ?
+            <>
             <FourColumns>
-            { items.map((item) =>(
+            { 
+            items.map((item) =>(
                     <Container5>
                     <Img22 src={item.image_link} />
                     <div>
@@ -41,10 +46,11 @@ const Home = () => {
                         <Text9> Rs. {item?.price}</Text9>
                         <Text8>{item?.description}</Text8>
                     </div>
-                    <button style={{border:'none', padding:'12px', background:'beige'}} onClick={() => {addToCart(item.id)}}>Add to cart</button>
                     </Container5>
         ))}
         </FourColumns>
+       <h3 style={{textAlign:'center', justifyContent:'center', alignItems:'center', display:'flex'}}>Total : {total}</h3>
+        </>
             : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>Loading</h3>
             }
     </>
