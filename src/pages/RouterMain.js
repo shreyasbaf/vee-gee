@@ -8,7 +8,7 @@ const RouterMain = () => (
   <main>
     <Switch>
       <Route exact path='/' component={LandingPage}/>
-      <Route path='/blogs' component={Home}/>
+      <Route path='/cart' component={Home}/>
       <Route path='/about' component={LandingPage}/>
       <Route path='/contact' component={LandingPage}/>
       <Route path='/category/:id' component={Category} />

@@ -8,6 +8,7 @@ export const LandingPage = () => {
     const [loading,setLoading] = React.useState(false)
     const [category,setCategory] = React.useState([])
     React.useEffect(() => {
+      try{
       if(!localStorage.getItem('token')){
         let token = Math.random().toString(36).substring(2,15) + Math.random().toString(36).substring(2,15) + Math.random().toString(36).substring(2,15);
         localStorage.setItem('token',token)
@@ -23,6 +24,10 @@ export const LandingPage = () => {
         .catch(error =>{
             console.log('ERROR',error)
         })
+      }
+      catch(err){
+        console.log(err)
+      }
     },[])
     return (
         <>

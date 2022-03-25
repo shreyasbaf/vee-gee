@@ -12,9 +12,23 @@ const Category = () => {
     const addToCart = (PID) =>{
         console.log(PID)
         const token = localStorage.getItem('token')
+        let data = { token: token, id:PID }
+        try{
+            axios.post('http://localhost:8080/addItemToCart', data)
+            .then(response =>{
+              console.log(response)
+            })
+            .catch(error =>{
+                console.log('ERROR',error)
+            })
+          }
+          catch(err){
+            console.log(err);
+          }
         //handle addToCart here
     }
     React.useEffect(() => {
+        try{
         setLoading(true)
         axios.get(`https://veegee-backend-demo.herokuapp.com/getCategoryItems/`+id)
         .then(response =>{
@@ -25,6 +39,10 @@ const Category = () => {
         .catch(error =>{
             console.log('ERROR',error)
         })
+    }
+    catch(err){
+        console.log(err)
+    }
     },[])
     return (
         <>
@@ -43,7 +61,7 @@ const Category = () => {
                     </Container5>
         ))}
         </FourColumns>
-            : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>Loading</h3>
+            : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>No Data To Display</h3>
             }
     </>
     )

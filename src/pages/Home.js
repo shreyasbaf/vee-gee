@@ -9,16 +9,29 @@ const Home = () => {
     const [loading,setLoading] = React.useState(false)
     const [items,setItems] = React.useState([])
     const [total, setTotal] = useState(0);
-    const addToCart = (PID) =>{
+    const removeFromCart = (PID) =>{
         console.log(PID)
         const token = localStorage.getItem('token')
-        //handle addToCart here
+        console.log(PID)
+        let data = { token: token, id:PID }
+        try{
+            axios.post('http://localhost:8080/removeItemFromCart', data)
+            .then(response =>{
+              console.log(response);
+              getData();
+            })
+            .catch(error =>{
+                console.log('ERROR',error)
+            })
+          }
+          catch(err){
+            console.log(err);
+          }
     }
-    
-    React.useEffect(() => {
-        setLoading(true)
-        const token = localStorage.getItem('token')
-        const data = { token : token };
+    const getData = () =>{
+      const token = localStorage.getItem('token')
+      const data = { token : token };
+      try{
         axios.post('https://veegee-backend-demo.herokuapp.com/getCartItems', data)
         .then(response =>{
           console.log(response)
@@ -30,6 +43,15 @@ const Home = () => {
         .catch(error =>{
             console.log('ERROR',error)
         })
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+
+    React.useEffect(() => {
+        setLoading(true)
+        getData();
     },[])
     return (
         <>
@@ -46,12 +68,13 @@ const Home = () => {
                         <Text9> Rs. {item?.price}</Text9>
                         <Text8>{item?.description}</Text8>
                     </div>
+                    <button style={{border:'none', padding:'12px', background:'beige'}} onClick={() => {removeFromCart(item.id)}}>Remove From Cart</button>
                     </Container5>
         ))}
         </FourColumns>
        <h3 style={{textAlign:'center', justifyContent:'center', alignItems:'center', display:'flex'}}>Total : {total}</h3>
         </>
-            : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>Loading</h3>
+            : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>No Data To Display</h3>
             }
     </>
     )
