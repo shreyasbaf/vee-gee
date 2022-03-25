@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { RotatingLines } from 'react-loader-spinner';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import cart from '../assets/images/shoppingCart1.svg'
 
 const Cart = () => {
   const history = useHistory()
@@ -116,7 +117,13 @@ const Cart = () => {
        <button style={{border:'none', padding:'12px', background:'lightGreen',justifyContent:'center', alignItems:'center', display:'flex', textAlign:'center'}} onClick={ () => {handleCart()}} >Order on Whatsapp</button>
         </Container5>
         </>
-            : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>No Data To Display</h3>
+            :
+            <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+              <img style={{width:'200px', height:'200px', marginTop:'80px'}} src={cart} />
+              <h3 style={{textAlign:'center', marginTop:'36px', justifyContent:'center', alignItems:'center', display:'flex', fontFamily: 'IBM Plex Serif'}}>Shopping Cart is Empty</h3>
+       <button style={{border:'none', padding:'12px 24px', background:'#d9915e',justifyContent:'center', alignItems:'center', display:'flex', textAlign:'center', borderRadius:'8px'}} onClick={ () => history.push('/')} >Home</button>
+
+            </div> 
             }
             <ToastContainer
 position="bottom-center"

@@ -13,6 +13,7 @@ function App() {
 <Container>
       <Navbar />
       <RouterMain />
+      {/* <h4>Footer here</h4> */}
     </Container>
   );
 }

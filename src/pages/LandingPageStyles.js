@@ -18,11 +18,49 @@ export const FourColumns = styled.div`
     grid-template-columns: repeat(4, 1fr);
   }
   `;
+
+export const FourColumnsResponsive = styled.div`
+  display: grid;
+  margin-top: 24px;
+  grid-gap: 0px;
+  grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 600px) {
+    grid-gap: 0px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 600px) {
+    grid-gap: 51px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1000px) {
+    grid-gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  `;
+
+export const ThreeColumns = styled.div`
+display: grid;
+margin-top: 80px;
+grid-gap: 0px;
+grid-template-columns: repeat(1, 1fr);
+@media (min-width: 600px) {
+  grid-gap: 0px;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 600px) {
+  grid-gap: 51px;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 1000px) {
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+}
+`;
     
     export const Container2 = styled.div`
     text-align: center;
     margin-top: 0px;
-    margin: 80px;
+    margin: 80px 0 24px 0;
     @media (max-width: 1000px) {
     padding: 12px;
     text-align: center;
@@ -56,8 +94,9 @@ export const FourColumns = styled.div`
     display: flex;
     flex-direction: column;
     text-align: left;
-    /* margin-top: 76px; */
-    padding: 24px;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
   `;
 
   export const Text1 = styled.div`
@@ -110,7 +149,7 @@ export const FourColumns = styled.div`
     font-size: 14px;
     line-height: 22px;
     text-align:center;
-    margin: 24px;
+    margin: 12px;
 `;
 
   export const Text9 = styled.div`

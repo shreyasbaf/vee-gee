@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React from 'react'
-import { Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyles';
+import { Container5, FourColumns, Img22, Text8, Text9, ThreeColumns } from './LandingPageStyles';
 import { toast, ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { RotatingLines } from 'react-loader-spinner';
+import { Button, Description, DetailsContainer, Heading, Image, Price, Wrapper } from './Product';
 
 const Category = () => {
     const notify = () => toast('🦄 Item Added to Cart!', {
@@ -69,19 +70,27 @@ const Category = () => {
             </div>
             :
             items.length ?
-            <FourColumns>
+            <ThreeColumns>
             { items.map((item) =>(
-                    <Container5>
-                    <Img22 src={item.image_link} />
-                    <div>
-                        <Text9 style={{textDecoration:'none', color:'black'}}>{item.name}</Text9>
-                        <Text9> Rs. {item?.price}</Text9>
-                        <Text8>{item?.description}</Text8>
-                    </div>
-                    <button style={{border:'none', padding:'12px', background:'beige'}} onClick={() => {addToCart(item.id); setHandleAction(true);}}> {handleAction ? <RotatingLines width="20" strokeColor="#FF5733" strokeWidth="1" /> : 'Add to Cart' }</button>
-                    </Container5>
+                            <Wrapper>
+                            <Image src={item?.image_link} />
+                            <DetailsContainer>
+                            <Heading>
+                                {item?.name}
+                            </Heading>
+                            <Description>
+                                {item?.description}
+                            </Description>
+                            <Price>
+                            <span>{item?.mrp}</span> &nbsp; {item?.price} <p className='discount'> &nbsp; &nbsp; {Math.round(((item.mrp - item.price)/ item.mrp )* 100)}% </p>
+                            </Price>
+                            <Button onClick={() => {addToCart(item.id); setHandleAction(true);}}>
+                                {handleAction ? <RotatingLines width="30" strokeColor="#ffffff" strokeWidth="3" /> : 'Add to Cart' }
+                            </Button>
+                            </DetailsContainer>
+                            </Wrapper>
         ))}
-        </FourColumns>
+        </ThreeColumns>
             : <h3 style={{textAlign:'center', marginTop:'100px', justifyContent:'center', alignItems:'center', display:'flex'}}>No Data To Display</h3>
             }
             <div style={{marginBottom:'50px'}}>

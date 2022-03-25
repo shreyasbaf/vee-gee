@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import TabGroup from '../components/TabGroup';
-import { Container2, Container5, FourColumns, Image2, Img22, Sect2, Text1, Text6, Text7, Text8, Text9 } from './LandingPageStyles';
+import { Container2, Container5, FourColumns, FourColumnsResponsive, Image2, Img22, Sect2, Text1, Text6, Text7, Text8, Text9 } from './LandingPageStyles';
 
 export const LandingPage = () => {
     const [loading,setLoading] = React.useState(false)
@@ -41,7 +41,9 @@ export const LandingPage = () => {
             since our humble beginnings, we made sure to put our customers at the center of everything we do.
           </Text7>
           <Image2 src='https://www.veegeebakersvillage.com/assets/images/logo/logo.PNG' />
-          <FourColumns>
+          <Text1 style={{marginTop:'12px'}}>Browse By Category</Text1>
+          <Text8>Unforgettable Sweetness You’ll Keep Craving For.</Text8>
+          <FourColumnsResponsive>
         {
         category.length ?
         category.map((category) =>(
@@ -57,7 +59,7 @@ export const LandingPage = () => {
     ))
         : <h3 style={{textAlign:'center'}}>Loading</h3>
         }
-          </FourColumns>
+          </FourColumnsResponsive>
         </Container2>
         <TabGroup />
       </Sect2>

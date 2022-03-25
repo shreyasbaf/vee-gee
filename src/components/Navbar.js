@@ -15,7 +15,7 @@ const Navbar = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
         <MenuLink href="/cart">My Cart</MenuLink>
-        <MenuLink href="/about">About</MenuLink>
+        <MenuLink href="/product">Product</MenuLink>
         <MenuLink href="/careers">Careers</MenuLink>
         <MenuLink href="/contact">Contact</MenuLink>
       </Menu>
