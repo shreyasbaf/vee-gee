@@ -7,6 +7,7 @@ import { RotatingLines } from 'react-loader-spinner';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import cart from '../assets/images/shoppingCart1.svg'
+import { CartImage, DisplayText, FlexBox, HomeButton } from './styles';
 
 const Cart = () => {
   const history = useHistory()
@@ -112,30 +113,28 @@ const Cart = () => {
         ))}
         </FourColumns>
         <Container5>
-
-       <h3 style={{textAlign:'center', justifyContent:'center', alignItems:'center', display:'flex'}} >Total : {total}</h3>
-       <button style={{border:'none', padding:'12px', background:'lightGreen',justifyContent:'center', alignItems:'center', display:'flex', textAlign:'center'}} onClick={ () => {handleCart()}} >Order on Whatsapp</button>
+          <DisplayText>Total : {total}</DisplayText>
+          <button style={{border:'none', padding:'12px', background:'lightGreen',justifyContent:'center', alignItems:'center', display:'flex', textAlign:'center'}} onClick={ () => {handleCart()}} >Order on Whatsapp</button>
         </Container5>
         </>
             :
-            <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-              <img style={{width:'200px', height:'200px', marginTop:'80px'}} src={cart} />
-              <h3 style={{textAlign:'center', marginTop:'36px', justifyContent:'center', alignItems:'center', display:'flex', fontFamily: 'IBM Plex Serif'}}>Shopping Cart is Empty</h3>
-       <button style={{border:'none', padding:'12px 24px', background:'#d9915e',justifyContent:'center', alignItems:'center', display:'flex', textAlign:'center', borderRadius:'8px'}} onClick={ () => history.push('/')} >Home</button>
-
-            </div> 
+            <FlexBox>
+                <CartImage src={cart} />
+                <DisplayText>Your Shopping Cart is empty</DisplayText>
+                <HomeButton onClick={ () => history.push('/')} >Home</HomeButton>
+            </FlexBox>
             }
             <ToastContainer
-position="bottom-center"
-autoClose={2000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-/>
+                position="bottom-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
     </>
     )
 }

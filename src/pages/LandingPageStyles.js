@@ -97,11 +97,13 @@ grid-template-columns: repeat(1, 1fr);
     justify-content: center;
     align-items: center;
     padding: 12px;
+    /* animation-name: fadeInUp; */
+    /* transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s; */
   `;
 
   export const Text1 = styled.div`
+    font-family: 'IBM Plex Serif', 'serif';
     text-transform: uppercase;
-    font-family: Regular;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -115,8 +117,8 @@ grid-template-columns: repeat(1, 1fr);
 `;
 
   export const Text6 = styled.div`
+    font-family: 'IBM Plex Serif', 'serif';
     font-style: normal;
-    font-family: Regular2;
     font-weight: bold;
     font-size: 36px;
     line-height: 45px;

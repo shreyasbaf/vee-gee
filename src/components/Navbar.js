@@ -33,7 +33,8 @@ const MenuLink = styled.a`
   color: #d9915e;
   transition: all 0.3s ease-in;
   font-size: 0.9rem;
-
+  position: relative;
+  z-index:9999999;
   &:hover {
     color: black;
   }

@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React from 'react'
+import ScrollAnimation from 'react-animate-on-scroll';
 import { Link } from 'react-router-dom';
 import TabGroup from '../components/TabGroup';
 import { Container2, Container5, FourColumns, FourColumnsResponsive, Image2, Img22, Sect2, Text1, Text6, Text7, Text8, Text9 } from './LandingPageStyles';
-
+import logo from '../assets/images/logo.png'
 export const LandingPage = () => {
     const [loading,setLoading] = React.useState(false)
     const [category,setCategory] = React.useState([])
@@ -33,14 +34,14 @@ export const LandingPage = () => {
         <>
         <Sect2>
         <Container2>
-          <Text1>VeeGee Bakers Village</Text1>
-          <Text6>The Baking Begins From Here</Text6>
+          <Text1>The Baking Begins From Here</Text1>
+          <Text6>VeeGee Bakers Village</Text6>
           <Text7>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Ever
             since our humble beginnings, we made sure to put our customers at the center of everything we do.
           </Text7>
-          <Image2 src='https://www.veegeebakersvillage.com/assets/images/logo/logo.PNG' />
+          <Image2 src={logo} />
           <Text1 style={{marginTop:'12px'}}>Browse By Category</Text1>
           <Text8>Unforgettable Sweetness You’ll Keep Craving For.</Text8>
           <FourColumnsResponsive>
