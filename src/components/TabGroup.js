@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import AddCategory from '../pages/Admin/AddCategory';
+import RemoveCategory from '../pages/Admin/RemoveCategory';
 // import Accord from './Accord';
 
 const Tab = styled.button`
@@ -25,6 +27,7 @@ flex-direction: column;
     `opacity: 1;
     color:black;
   `}
+  z-index:1;
   font-weight: 600;
 `;
 
@@ -98,13 +101,14 @@ const Hr = styled.hr`
     border-bottom: 1px solid #A91F2E;
 `;
 
-const types = ['Marketplace', 'Getting Started', 'Buying & Selling', 'Verification'];
-export function TabGroup() {
+let types = ['Marketplace', 'Getting Started', 'Buying & Selling', 'Verification'];
+export function TabGroup(props) {
   const [active, setActive] = useState(types[0]);
+  types = props.types || types
   return (
     <Container>
-    <Heading1>GET YOUR ANSWERS</Heading1>
-    <Heading>Frequently Asked Questions</Heading>
+    {/* <Heading1>GET YOUR ANSWERS</Heading1> */}
+    {/* <Heading>Frequently Asked Questions</Heading> */}
       <TabBar>
         {types.map(type => (
             <div>
@@ -120,6 +124,34 @@ export function TabGroup() {
         ))}
       </TabBar>
       <p />
+      {
+        active == 'Add Category'?
+        <>
+        <AddCategory />
+        </>
+        : ''
+      }
+      {
+        active == 'Add Product'?
+        <>
+        Add Product
+        </>
+        : ''
+      }
+            {
+        active == 'Delete Category'?
+        <>
+        <RemoveCategory />
+        </>
+        : ''
+      }
+      {
+        active == 'Delete Product'?
+        <>
+        Remove Product
+        </>
+        : ''
+      }
     </Container>
   );
 }

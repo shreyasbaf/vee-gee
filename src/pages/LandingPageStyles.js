@@ -188,7 +188,6 @@ grid-template-columns: repeat(1, 1fr);
     height: 100%;
     width: 90%;
     margin: 24px;
-
 `;
 
 export const Sect2 = styled.section`

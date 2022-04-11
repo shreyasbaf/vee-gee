@@ -7,6 +7,7 @@ import Amplify, { Auth, Storage } from 'aws-amplify';
 import { Button } from './Product';
 import { SuccessModal } from '../components/Modals/SuccessModal';
 import { useHistory } from 'react-router-dom';
+import TabGroup from '../components/TabGroup';
 
 const Admin = () => {
     const history = useHistory()
@@ -58,7 +59,7 @@ const onFileUpload = (event) => {
     formData.append('file', event.target.files[0], selectedFile.name);
     console.log('object', formData)
     console.log('IMG',selectedFile)
-    axios.post('http://localhost:8080/s3upload', formData)
+    axios.post('https://veegee-backend-demo.herokuapp.com/s3upload', formData)
       .then((res) => {
           console.log('object')
         // setAvatarFilePath(res.data.url);
@@ -77,7 +78,6 @@ const onFileUpload = (event) => {
         }
     })
 }
-
   const onSelectFile = async (event) => {
     const file = event.target.files[0];
     const convertedFile = await convertToBase64(file);
@@ -85,7 +85,7 @@ const onFileUpload = (event) => {
         image: convertedFile,
         imageName: file.name
     }
- await axios.post('http://localhost:8080/s3upload/',data)
+ await axios.post('https://veegee-backend-demo.herokuapp.com/s3upload/',data)
  .then((res) => {
      setLink(res.data.link)
  })
@@ -95,16 +95,22 @@ const [show, setShow] = React.useState('');
 const Close = () => {
   setShow('');
 };
+const types=['Add Category', 'Add Product', 'Delete Product','Delete Category']
     return (
         <>
  <SuccessModal heading='Admin Login' show={show === 'admin' ? true : false} Close={() => Close()} />
-        <div style={{marginTop:'80px'}}>
+        {/* <div style={{marginTop:'80px'}}>
             Admin Page
             <Button onClick={() => setShow('admin')} >Admin Login</Button>
             <FileUpload type="file" onChange={onSelectFile} />
+            {
+              link === '' ? <> </>:
             <img src={link} alt='img'/>
+            } */}
             {/* <InputImage label='anyjn' /> */}
-        </div>
+
+        {/* </div> */}
+        <TabGroup types={types}/>
         </>
     )
 }

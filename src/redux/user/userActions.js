@@ -12,7 +12,7 @@ export const fetchUsers = () => {
       name:'Shreyas',
       password:'Password'
     }
-    axios.post('http://localhost:8080/vee-gee-login', data)
+    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-login', data)
     // axios
       // .get('https://jsonplaceholder.typicode.com/users')
       .then(response => {
@@ -41,7 +41,7 @@ export const loginUser = () => {
     }
     // axios
     // .get('https://jsonplaceholder.typicode.com/users')
-    axios.post('http://localhost:8080/vee-gee-login', data)
+    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-login', data)
       .then(response => {
         // response.data is the users
         const users = response.data
