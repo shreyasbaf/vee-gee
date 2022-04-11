@@ -30,7 +30,8 @@ const Login = ({ userData, fetchUsers }) => {
         setTimeout(() => {
           localStorage.removeItem('adminLoggedIn');
         }, 2000 * 60 * 60);
-        history.push('/')
+        // history.push('/')
+        window.location.reload(false)
       }
       else{
         localStorage.removeItem('adminLoggedIn');
