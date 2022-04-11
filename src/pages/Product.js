@@ -36,6 +36,7 @@ import styled from 'styled-components';
         @media (max-width: 850px){
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
     `;
     export const Description = styled.p`
