@@ -21,7 +21,7 @@ const Login = ({ userData, fetchUsers }) => {
       name:name,
       password:password
     }
-    axios.post('http://localhost:8080/vee-gee-login', data)
+    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-login', data)
     .then((res) => {
       if(res.data == 'Success'){
         setName('');

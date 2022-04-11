@@ -14,7 +14,7 @@ const Signup = () => {
       name:name,
       password:password
     }
-    axios.post('http://localhost:8080/vee-gee-signup', data)
+    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-signup', data)
     .then((res) => {
       if(res.data == 'Success'){
         setName('');
