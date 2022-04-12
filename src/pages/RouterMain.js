@@ -23,6 +23,10 @@ const RouterMain = () => {
         localStorage.getItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z') ?
         <>
           <Route path='/admin' component={Admin} />
+          <Route path='/cart' component={Cart}/>
+          <Route path='/about' component={LandingPage}/>
+          <Route path='/product' component={Product}/>
+          <Route path='/category/:id' component={Category} />
         </>
       :
       localStorage.getItem('userLoggedIn') ?

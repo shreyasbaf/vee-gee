@@ -6,6 +6,7 @@ const Navbar = () => {
 
   const handleLogoutAdmin = () =>{
     localStorage.removeItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z');
+    localStorage.removeItem('userLoggedIn');
     window.location.reload(false)
   }
 
@@ -29,6 +30,11 @@ const Navbar = () => {
         <MenuLink href="/product">Product</MenuLink>
         <MenuLink href="/careers">Careers</MenuLink>
         <MenuLink href="/contact">Contact</MenuLink>
+        {
+          localStorage.getItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z')? 
+          <MenuLink href='/admin'>Admin Page</MenuLink>:
+          ''
+        }
         {
           localStorage.getItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z')? 
           <MenuLink onClick={() => handleLogoutAdmin()}>Logout Admin</MenuLink>:

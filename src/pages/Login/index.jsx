@@ -7,6 +7,7 @@ import {  Heading } from '../Product';
 import { fetchUsers, loginUser } from '../../redux';
 import { connect } from 'react-redux';
 import { BASEURL } from '../../redux/user/userTypes';
+import { DisplayText, FlexBox, HomeButton } from '../styles';
 
 const Login = ({ userData, fetchUsers }) => {
   const [name, setName] = useState('');
@@ -24,20 +25,14 @@ const Login = ({ userData, fetchUsers }) => {
     }
     if(name === 'Vimal@123balar' && password ==='Vimal@321balar'){
       localStorage.setItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z', true);
+      localStorage.setItem('userLoggedIn', true);
       setName('');
       setPassword('')
       setTimeout(() => {
         localStorage.removeItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z');
+        localStorage.removeItem('userLoggedIn');
       }, 2000 * 60 * 60);
-    // let id = locationArr[locationArr.length - 1];
-    let location = window.location.href;
-    let locationArr = location.split('/');
-    if(locationArr[3] === 'login'){
-    window.location.reload(false)
-    }
-    else{
-      history.push('/')
-    }
+      window.location.reload(false)
     }
     else{
     axios.post(`${BASEURL}/vee-gee-login`, data)
@@ -49,14 +44,7 @@ const Login = ({ userData, fetchUsers }) => {
         setTimeout(() => {
           localStorage.removeItem('userLoggedIn');
         }, 2000 * 60 * 60);
-        let location = window.location.href;
-        let locationArr = location.split('/');
-        if(locationArr[3] === 'login'){
-          history.push('/')
-        }
-        else{
           window.location.reload(false)
-        }
       }
       else{
         localStorage.removeItem('adminLoggedIn');
@@ -69,10 +57,20 @@ const Login = ({ userData, fetchUsers }) => {
   }
     return (
         <div style={{marginTop:'80px', padding:'24px'}}>
+          {
+            !localStorage.getItem('userLoggedIn') ?
+            <>
           <Heading>Login Screen</Heading>
           <InputWrapper label='Name' placeholder='Name' value={name} onChange={(e) =>{setName(e.target.value)}} />
           <InputWrapper label='Passowrd' placeholder='Password' value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
           <Button onClick={() => handleLogin() }>Login</Button>
+          </>
+          :
+          <FlexBox>
+          <DisplayText>Logged In Successfully</DisplayText>
+          <HomeButton onClick={ () => history.push('/')} >Home</HomeButton>
+      </FlexBox>
+          }
         </div>
     )
 }
