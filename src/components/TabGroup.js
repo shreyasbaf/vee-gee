@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddCategory from '../pages/Admin/AddCategory';
+import AddProducts from '../pages/Admin/AddProducts';
 import RemoveCategory from '../pages/Admin/RemoveCategory';
 // import Accord from './Accord';
 
@@ -74,8 +75,8 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 `;
 
 const QuestButton = styled.button`
@@ -134,7 +135,7 @@ export function TabGroup(props) {
       {
         active == 'Add Product'?
         <>
-        Add Product
+        <AddProducts />
         </>
         : ''
       }

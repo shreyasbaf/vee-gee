@@ -60,7 +60,7 @@ export const FileUpload = styled.div`
   width: 200px;
   height: 50px;
   border-radius: 25px;
-  background: linear-gradient(40deg,#ff6ec4,#7873f5);
+  background: linear-gradient(40deg,#d9915e,#873e23);
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;

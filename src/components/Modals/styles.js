@@ -240,7 +240,8 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #a91f2e;
+  /* background: #a91f2e; */
+  background: linear-gradient(40deg,#d9915e,#873e23);
   border-radius: 2px;
   border: 0;
   color: white;
@@ -250,14 +251,17 @@ export const Button = styled.button`
   font-weight: bold;
   font-size: 13px;
   line-height: 16px;
-  width: 348px;
+  /* width: 348px; */
   height: 48px;
   margin: 24px 36px ;
+  padding: 16px;
+  cursor: pointer;
+  border-radius: 12px;
   @media (max-width: 600px){
     display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        /* width: 100%; */
         margin: 0;
         margin-top: 24px;
     }
