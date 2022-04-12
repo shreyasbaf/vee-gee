@@ -50,15 +50,12 @@ const RemoveCategory = () => {
       },[active])
     return (
         <div>
-<select className="" name="Category"  onChange={ (e) => setActive(e.target.value)} > 
+<select className="" name="Category"  style={{marginBottom:'12px', padding:'12px', width:'100%', border:'2px solid #e6e8ec', color:'#666666', background:'transparent'}}  onChange={ (e) => setActive(e.target.value)} > 
 <option>Select Category</option> 
 {category.map((e, key) => {  
 return <option key={key} value={e.category_id} >{e.category_name}</option>;  
 })}  
 </select>  
-{
-    active !== '' ? <p>{active}</p> : ''
-}
 <Button onClick={() => handleSubmit()}>Delete Category</Button>
         </div>
     )

@@ -20,14 +20,18 @@ const RouterMain = () => {
       <Route exact path='/login' component={Login} />
       <Route exact path='/signup' component={Signup} />
       {
-        localStorage.getItem('adminLoggedIn') ?
+        localStorage.getItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z') ?
         <>
-      <Route path='/cart' component={Cart}/>
-      <Route path='/about' component={LandingPage}/>
-      <Route path='/product' component={Product}/>
-      <Route path='/category/:id' component={Category} />
-        <Route path='/admin' component={Admin} />
-      </>
+          <Route path='/admin' component={Admin} />
+        </>
+      :
+      localStorage.getItem('userLoggedIn') ?
+        <>
+          <Route path='/cart' component={Cart}/>
+          <Route path='/about' component={LandingPage}/>
+          <Route path='/product' component={Product}/>
+          <Route path='/category/:id' component={Category} />
+        </>
       :
       <Route path='/' component={Login}/>
       }

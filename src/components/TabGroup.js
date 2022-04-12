@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AddCategory from '../pages/Admin/AddCategory';
 import AddProducts from '../pages/Admin/AddProducts';
 import RemoveCategory from '../pages/Admin/RemoveCategory';
+import { Button } from './Modals/styles';
 // import Accord from './Accord';
 
 const Tab = styled.button`
@@ -153,6 +154,7 @@ export function TabGroup(props) {
         </>
         : ''
       }
+      {/* <Button>Logout Admin</Button> */}
     </Container>
   );
 }

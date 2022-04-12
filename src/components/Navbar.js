@@ -3,6 +3,17 @@ import styled from "styled-components";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleLogoutAdmin = () =>{
+    localStorage.removeItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z');
+    window.location.reload(false)
+  }
+
+  const handleLogout= () =>{
+    localStorage.removeItem('userLoggedIn');
+    window.location.reload(false)
+  }
+
   return (
     <Nav>
       <Logo href="/">
@@ -18,6 +29,13 @@ const Navbar = () => {
         <MenuLink href="/product">Product</MenuLink>
         <MenuLink href="/careers">Careers</MenuLink>
         <MenuLink href="/contact">Contact</MenuLink>
+        {
+          localStorage.getItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z')? 
+          <MenuLink onClick={() => handleLogoutAdmin()}>Logout Admin</MenuLink>:
+          localStorage.getItem('userLoggedIn') ? 
+          <MenuLink onClick={() => handleLogout()}>Logout</MenuLink>:
+          <MenuLink href="/login">Login</MenuLink>
+        }
       </Menu>
     </Nav>
   );
