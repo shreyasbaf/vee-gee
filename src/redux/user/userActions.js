@@ -2,7 +2,8 @@ import axios from 'axios'
 import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
-  FETCH_USERS_FAILURE
+  FETCH_USERS_FAILURE,
+  BASEURL
 } from './userTypes'
 
 export const fetchUsers = () => {
@@ -12,7 +13,7 @@ export const fetchUsers = () => {
       name:'Shreyas',
       password:'Password'
     }
-    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-login', data)
+    axios.post(`${BASEURL}/vee-gee-login`, data)
     // axios
       // .get('https://jsonplaceholder.typicode.com/users')
       .then(response => {
@@ -41,7 +42,7 @@ export const loginUser = () => {
     }
     // axios
     // .get('https://jsonplaceholder.typicode.com/users')
-    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-login', data)
+    axios.post(`${BASEURL}/vee-gee-login`, data)
       .then(response => {
         // response.data is the users
         const users = response.data

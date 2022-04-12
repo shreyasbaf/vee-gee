@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import TabGroup from '../components/TabGroup';
 import { Container2, Container5, FourColumns, FourColumnsResponsive, Image2, Img22, Sect2, Text1, Text6, Text7, Text8, Text9 } from './LandingPageStyles';
 import logo from '../assets/images/logo.png'
+import { BASEURL } from '../redux/user/userTypes';
 export const LandingPage = () => {
     const [loading,setLoading] = React.useState(false)
     const [category,setCategory] = React.useState([])
@@ -15,7 +16,8 @@ export const LandingPage = () => {
         localStorage.setItem('token',token)
       }
         setLoading(true)
-        axios.get(`https://veegee-backend-demo.herokuapp.com/getCategories`)
+        // axios.get(`https://veegee-backend-demo.herokuapp.com/getCategories`)
+        axios.get(`${BASEURL}/getCategories`)
         .then(response =>{
             var resData = response.data
             setCategory(resData)

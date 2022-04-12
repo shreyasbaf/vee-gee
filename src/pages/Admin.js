@@ -8,6 +8,7 @@ import { Button } from './Product';
 import { SuccessModal } from '../components/Modals/SuccessModal';
 import { useHistory } from 'react-router-dom';
 import TabGroup from '../components/TabGroup';
+import { BASEURL } from '../redux/user/userTypes';
 
 const Admin = () => {
     const history = useHistory()
@@ -59,7 +60,7 @@ const onFileUpload = (event) => {
     formData.append('file', event.target.files[0], selectedFile.name);
     console.log('object', formData)
     console.log('IMG',selectedFile)
-    axios.post('https://veegee-backend-demo.herokuapp.com/s3upload', formData)
+    axios.post(`${BASEURL}/s3upload`, formData)
       .then((res) => {
           console.log('object')
         // setAvatarFilePath(res.data.url);
@@ -85,7 +86,7 @@ const onFileUpload = (event) => {
         image: convertedFile,
         imageName: file.name
     }
- await axios.post('https://veegee-backend-demo.herokuapp.com/s3upload/',data)
+ await axios.post(`${BASEURL}/s3upload/`,data)
  .then((res) => {
      setLink(res.data.link)
  })

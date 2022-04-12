@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import styled from 'styled-components';
+import { BASEURL } from '../../redux/user/userTypes';
 import SharedInputField from '../SharedInputField'
 
 import {
@@ -36,7 +37,7 @@ export const SuccessModal = (props) => {
       name:name,
       password:password
     }
-    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-login', data)
+    axios.post(`${BASEURL}/vee-gee-login`, data)
     .then((res) => {
       if(res.data == 'Success'){
         props.Close();

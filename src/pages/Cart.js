@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import cart from '../assets/images/shoppingCart1.svg'
 import { CartImage, DisplayText, FlexBox, HomeButton } from './styles';
+import { BASEURL } from '../redux/user/userTypes';
 
 const Cart = () => {
   const history = useHistory()
@@ -45,7 +46,7 @@ const Cart = () => {
         console.log(PID)
         let data = { token: token, id:PID }
         try{
-            axios.post('https://veegee-backend-demo.herokuapp.com/removeItemFromCart', data)
+            axios.post(`${BASEURL}/removeItemFromCart`, data)
             .then(response =>{
               console.log(response);
               getData();
@@ -65,7 +66,7 @@ const Cart = () => {
       const data = { token : token };
       try{
         setLoading(true)
-        axios.post('https://veegee-backend-demo.herokuapp.com/getCartItems', data)
+        axios.post(`${BASEURL}/getCartItems`, data)
         .then(response =>{
           console.log(response)
             var resData = response?.data?.result

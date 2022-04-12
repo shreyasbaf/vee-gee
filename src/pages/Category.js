@@ -10,6 +10,7 @@ import { RotatingLines } from 'react-loader-spinner';
 import { Button, Description, DetailsContainer, Heading, Image, Price, Wrapper } from './Product';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { CartImage, DisplayText, FlexBox, HomeButton } from './styles';
+import { BASEURL } from '../redux/user/userTypes';
 
 const Category = () => {
     const history = useHistory()
@@ -34,7 +35,7 @@ const Category = () => {
         const token = localStorage.getItem('token')
         let data = { token: token, id:PID }
         try{
-            axios.post('https://veegee-backend-demo.herokuapp.com/addItemToCart', data)
+            axios.post(`${BASEURL}/addItemToCart`, data)
             .then(response =>{
               console.log(response)
               notify();
@@ -52,7 +53,7 @@ const Category = () => {
     React.useEffect(() => {
         try{
         setLoading(true)
-        axios.get(`https://veegee-backend-demo.herokuapp.com/getCategoryItems/`+id)
+        axios.get(`${BASEURL}/getCategoryItems/`+id)
         .then(response =>{
             var resData = response.data
             setItems(resData)

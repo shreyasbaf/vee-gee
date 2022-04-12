@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Button } from '../../components/Modals/styles';
 import { InputWrapper } from '../../components/Modals/SuccessModal'
+import { BASEURL } from '../../redux/user/userTypes';
 import { Img22 } from '../LandingPageStyles';
 import {  Heading } from '../Product';
 import { FileUpload } from '../styles';
@@ -28,7 +29,7 @@ const AddCategory = () => {
         imageName: file.name
     }
 
- await axios.post('https://veegee-backend-demo.herokuapp.com/s3upload/',data)
+ await axios.post(`${BASEURL}/s3upload/`,data)
  .then((res) => {
      setLink(res.data.link)
  })
@@ -38,10 +39,12 @@ const AddCategory = () => {
       name:name,
       link:link
     }
-    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-addCategory', data)
+    axios.post(`${BASEURL}/vee-gee-addCategory`, data)
     .then((res) => {
       if(res.data == 'Success'){
         setName('');
+        setLink('');
+        alert('Category Added')
       }
       else{
         alert('Try Again')

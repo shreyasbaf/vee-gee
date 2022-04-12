@@ -10,8 +10,7 @@ function App() {
   /* background: #67bc98; */
   /* height: 100vh; */
 `;
-
-  return (
+return (
     <Provider store = {store}>
 <Container>
       <Navbar />

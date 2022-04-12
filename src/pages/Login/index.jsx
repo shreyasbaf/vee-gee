@@ -6,6 +6,7 @@ import { InputWrapper } from '../../components/Modals/SuccessModal'
 import {  Heading } from '../Product';
 import { fetchUsers, loginUser } from '../../redux';
 import { connect } from 'react-redux';
+import { BASEURL } from '../../redux/user/userTypes';
 
 const Login = ({ userData, fetchUsers }) => {
   const [name, setName] = useState('');
@@ -21,7 +22,7 @@ const Login = ({ userData, fetchUsers }) => {
       name:name,
       password:password
     }
-    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-login', data)
+    axios.post(`${BASEURL}/vee-gee-login`, data)
     .then((res) => {
       if(res.data == 'Success'){
         setName('');

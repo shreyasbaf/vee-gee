@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom';
 import { Button } from '../../components/Modals/styles';
 import { InputWrapper } from '../../components/Modals/SuccessModal'
+import { BASEURL } from '../../redux/user/userTypes';
 import {  Heading } from '../Product';
 
 const Signup = () => {
@@ -14,7 +15,7 @@ const Signup = () => {
       name:name,
       password:password
     }
-    axios.post('https://veegee-backend-demo.herokuapp.com/vee-gee-signup', data)
+    axios.post(`${BASEURL}/vee-gee-signup`, data)
     .then((res) => {
       if(res.data == 'Success'){
         setName('');
