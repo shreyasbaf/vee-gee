@@ -103,7 +103,7 @@ const Cart = () => {
             { 
             items.map((item) =>(
                     <Container5>
-                    <Img22 src={item.image_link} />
+                    <Img22 src={item.image} />
                     <div>
                         <Text9 style={{textDecoration:'none', color:'black'}}>{item.name}</Text9>
                         <Text9> Rs. {item?.price}</Text9>

@@ -79,7 +79,7 @@ const Category = () => {
             <ThreeColumns>
             { items.map((item) =>(
                     <Wrapper>
-                    <Image src={item?.image_link} />
+                    <Image src={item?.image} />
                     <DetailsContainer>
                     <Heading>
                         {item?.name}

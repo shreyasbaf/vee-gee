@@ -15,7 +15,7 @@ flex-direction: column;
   padding: 12px 28px 8px 0px;
   @media only screen and (max-width: 600px) {
     padding: 10px 5px;
-    font-size: 8px;
+    font-size: 10px;
   }
   cursor: pointer;
   opacity: 0.4;
