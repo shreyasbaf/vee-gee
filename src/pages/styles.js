@@ -5,6 +5,7 @@ export const Container = styled.div`
 `;
 
 export const HomeButton = styled.button`
+cursor: pointer;
   border:none;
   padding: 12px 24px;
   background: #d9915e;
@@ -92,4 +93,5 @@ box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
 border-radius: 20px;
 box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
 margin:12px;
+justify-content: space-between;
 `;

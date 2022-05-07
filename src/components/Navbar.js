@@ -1,7 +1,18 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import logo from '../assets/images/logo.png'
+import cart from '../assets/images/shoppingCart.svg'
+
+const CartImage = styled.img`
+display: none;
+  @media(max-width:600px){
+    display: inline;
+    margin-left: 96px;
+  }
+`;
 const Navbar = () => {
+  const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLogoutAdmin = () =>{
@@ -20,12 +31,14 @@ const Navbar = () => {
       <Logo href="/">
         <img style={{width:'100px', height:'40px'}} src={logo}></img>
       </Logo>
+      <CartImage src={cart} onClick={() => history.push('/cart')} alt='cart'/>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
+      <MenuLink href="/">Home</MenuLink>
         <MenuLink href="/cart">My Cart</MenuLink>
         {/* <MenuLink href="/product">Product</MenuLink> */}
         {/* <MenuLink href="/careers">Careers</MenuLink> */}

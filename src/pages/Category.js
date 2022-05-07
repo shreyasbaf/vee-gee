@@ -88,7 +88,7 @@ const Category = () => {
                         {item?.description}
                     </Description>
                     <Price>
-                    <span>{item?.mrp}</span> &nbsp; {item?.price} <p className='discount'> &nbsp; &nbsp; {Math.round(((item.mrp - item.price)/ item.mrp )* 100)}% </p>
+                    <span> ₹ {item?.mrp}</span> &nbsp;  ₹ {item?.price} &nbsp;  <p className='discount'> {Math.round(((item.mrp - item.price)/ item.mrp )* 100)}% </p>
                     </Price>
                     <Button onClick={() => {addToCart(item.id); setHandleAction(true);}}>
                         {handleAction ? <RotatingLines width="30" strokeColor="#ffffff" strokeWidth="3" /> : 'Add to Cart' }

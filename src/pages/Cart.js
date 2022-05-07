@@ -111,7 +111,7 @@ const Cart = () => {
                         <Text9> Rs. {item?.price}</Text9>
                         {/* <Text8>{item?.description}</Text8> */}
                     </div>
-                    <img src={close} style={{ marginTop:'-96px', marginRight:'8px', cursor:'pointer'}} onClick={() => {removeFromCart(item.id); setHandleAction(item.id); }}/>
+                    <img src={close} style={{ position:'relative', top:'0',left:'0px', cursor:'pointer',marginTop:'-96px', marginRight:'12px'}} onClick={() => {removeFromCart(item.id); setHandleAction(item.id); }}/>
                     {/* <button style={{border:'none',height:'8px', padding:'12px', background:'url("https://products.ls.graphics/mesh-gradients/images/44.-Green-Yellow_1.jpg")', borderRadius:'50px', cursor:'pointer'}} onClick={() => {removeFromCart(item.id); setHandleAction(true);}}> {handleAction ? <RotatingLines width="20" strokeColor="#FF5733" strokeWidth="1" /> : 'R' }</button> */}
                    </CartContainer>
                    :

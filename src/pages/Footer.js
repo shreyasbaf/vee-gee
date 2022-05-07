@@ -2,6 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 import { FlexBox } from './styles';
 import logo from '../assets/images/logo.png'
+import insta from '../assets/images/insta.svg'
+import fb from '../assets/images/fb.svg'
+import whatsapp from '../assets/images/whatsapp.svg'
+
 const Footer = () => {
 
   const Flex = styled.div`
@@ -12,18 +16,17 @@ const Footer = () => {
   flex-flow : row wrap;
 `;
     return (
-      <Flex justifyContent='space-evenly'>
-        <img src={logo} style={{height:'30px', width:'100px'}} alt='logo'/>
-        <Flex>
-          <h4>F</h4>
-          <h4>T</h4>
-          <h4>I</h4>
-        </Flex>
+      <div style={{margin:'24px'}}>
+      <Flex justifyContent='center'>
+        <img src={insta} style={{height:'30px', width:'100px'}} alt='logo'/>
+        <img src={fb} style={{height:'30px', width:'100px'}} alt='logo'/>
+        <img src={whatsapp} style={{height:'30px', width:'100px'}} alt='logo'/>
         {/* <div>
           <h6>
           </h6>
         </div> */}
       </Flex>
+        </div>
     )
 }
 

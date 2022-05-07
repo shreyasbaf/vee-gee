@@ -53,8 +53,11 @@ import styled from 'styled-components';
             text-decoration: line-through;
         }
         .discount{
+            background-color: red;
+            padding: 2px 12px;
             display: inline;
-            color: green;
+            color: white;
+            border-radius: 4px;
         }
     `;
 
