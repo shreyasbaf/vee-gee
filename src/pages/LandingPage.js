@@ -63,7 +63,16 @@ export const LandingPage = () => {
         : <h3 style={{textAlign:'center'}}>Loading</h3>
         }
           </FourColumnsResponsive>
+          <div style={{marginTop:'24px'}}>  
+          <Text6>About Us</Text6>
+          <Text7>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea. Ever
+            since our humble beginnings, we made sure to put our customers at the center of everything we do.
+          </Text7>
+          </div>
         </Container2>
+        <Text6>FAQs</Text6>
         <TabGroup />
       </Sect2>
       </>

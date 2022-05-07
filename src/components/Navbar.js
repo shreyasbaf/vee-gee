@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import logo from '../assets/images/logo.png'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <Nav>
       <Logo href="/">
-        Vee Gee<span></span>
+        <img style={{width:'100px', height:'40px'}} src={logo}></img>
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -27,9 +27,9 @@ const Navbar = () => {
       </Hamburger>
       <Menu isOpen={isOpen}>
         <MenuLink href="/cart">My Cart</MenuLink>
-        <MenuLink href="/product">Product</MenuLink>
-        <MenuLink href="/careers">Careers</MenuLink>
-        <MenuLink href="/contact">Contact</MenuLink>
+        {/* <MenuLink href="/product">Product</MenuLink> */}
+        {/* <MenuLink href="/careers">Careers</MenuLink> */}
+        <MenuLink href="/contact-us">Contact</MenuLink>
         {
           localStorage.getItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z')? 
           <MenuLink href='/admin'>Admin Page</MenuLink>:
@@ -39,8 +39,8 @@ const Navbar = () => {
           localStorage.getItem('j4r6vnbzstdxy1nrngz5efjigu09bx2z')? 
           <MenuLink onClick={() => handleLogoutAdmin()}>Logout Admin</MenuLink>:
           localStorage.getItem('userLoggedIn') ? 
-          <MenuLink onClick={() => handleLogout()}>Logout</MenuLink>:
-          <MenuLink href="/login">Login</MenuLink>
+          <MenuLink onClick={() => handleLogout()}>Logout</MenuLink>: ''
+          // <MenuLink href="/login">Login</MenuLink>
         }
       </Menu>
     </Nav>
