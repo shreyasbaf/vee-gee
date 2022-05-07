@@ -84,3 +84,12 @@ input:focus + label {
   transform: scale(1.02);
 }
 `;
+
+export const CartContainer = styled.div`
+display: flex;
+background: url('https://products.ls.graphics/mesh-gradients/images/23.-California_1.jpg');
+box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
+border-radius: 20px;
+box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
+margin:12px;
+`;

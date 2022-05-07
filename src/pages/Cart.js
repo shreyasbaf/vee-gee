@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyles';
+import { CartImg, Container5, FourColumns, Img22, Text8, Text9 } from './LandingPageStyles';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RotatingLines } from 'react-loader-spinner';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import cart from '../assets/images/shoppingCart1.svg'
-import { CartImage, DisplayText, FlexBox, HomeButton } from './styles';
+import { CartContainer, CartImage, DisplayText, FlexBox, HomeButton } from './styles';
 import { BASEURL } from '../redux/user/userTypes';
+import close from '../assets/images/close.svg';
 
 const Cart = () => {
   const history = useHistory()
@@ -24,7 +25,7 @@ const Cart = () => {
       draggable: true,
       progress: undefined,
       });
-    const [handleAction, setHandleAction] = React.useState(false)
+    const [handleAction, setHandleAction] = React.useState('')
     const [loading,setLoading] = React.useState(false)
     const [items,setItems] = React.useState([])
     const [total, setTotal] = useState(0);
@@ -51,7 +52,7 @@ const Cart = () => {
               console.log(response);
               getData();
               notify();
-              setHandleAction(false)
+              setHandleAction('');
             })
             .catch(error =>{
                 console.log('ERROR',error)
@@ -102,21 +103,30 @@ const Cart = () => {
             <FourColumns>
             { 
             items.map((item) =>(
-                    <Container5>
-                    <Img22 src={item.image} />
-                    <div>
+             handleAction !== item.id ?
+              <CartContainer>
+                    <CartImg src={item.image} />
+                    <div style={{margin:'24px', display:'flex', flexDirection:'column', justifyContent:'center'}}>
                         <Text9 style={{textDecoration:'none', color:'black'}}>{item.name}</Text9>
                         <Text9> Rs. {item?.price}</Text9>
-                        <Text8>{item?.description}</Text8>
+                        {/* <Text8>{item?.description}</Text8> */}
                     </div>
-                    <button style={{border:'none', padding:'12px', background:'beige'}} onClick={() => {removeFromCart(item.id); setHandleAction(true);}}> {handleAction ? <RotatingLines width="20" strokeColor="#FF5733" strokeWidth="1" /> : 'Remove From Cart' }</button>
-                    </Container5>
+                    <img src={close} style={{ marginTop:'-96px', marginRight:'8px', cursor:'pointer'}} onClick={() => {removeFromCart(item.id); setHandleAction(item.id); }}/>
+                    {/* <button style={{border:'none',height:'8px', padding:'12px', background:'url("https://products.ls.graphics/mesh-gradients/images/44.-Green-Yellow_1.jpg")', borderRadius:'50px', cursor:'pointer'}} onClick={() => {removeFromCart(item.id); setHandleAction(true);}}> {handleAction ? <RotatingLines width="20" strokeColor="#FF5733" strokeWidth="1" /> : 'R' }</button> */}
+                   </CartContainer>
+                   :
+            <div style={{textAlign:'center', marginTop:'20px', justifyContent:'center', alignItems:'center', display:'flex'}}>
+            <RotatingLines width="60" strokeColor="#FF5733" strokeWidth="2" />
+          </div>
         ))}
         </FourColumns>
         <Container5>
           <DisplayText>Total : {total}</DisplayText>
-          <button style={{border:'none', padding:'12px', background:'lightGreen',justifyContent:'center', alignItems:'center', display:'flex', textAlign:'center'}} onClick={ () => {handleCart()}} >Order on Whatsapp</button>
+          <button style={{border:'none', cursor:'pointer', padding:'12px 24px', background:'lightGreen',justifyContent:'center', alignItems:'center', display:'flex', textAlign:'center', borderRadius:'50px'}} onClick={ () => {handleCart()}} >Order on Whatsapp</button>
         </Container5>
+        <CartContainer>
+
+        </CartContainer>
         </>
             :
             <FlexBox>

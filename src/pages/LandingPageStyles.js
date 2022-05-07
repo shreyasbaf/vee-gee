@@ -190,6 +190,13 @@ grid-template-columns: repeat(1, 1fr);
     margin: 24px;
 `;
 
+export const CartImg = styled.img`
+border-radius: 12px;
+height: 86px;
+width: 86px;
+margin: 24px;
+`;
+
 export const Sect2 = styled.section`
   background-size:  auto;
   display: flex;
